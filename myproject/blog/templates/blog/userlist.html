@@ -1,5 +1,8 @@
 {% extends "blog/base.html" %}
 {% block content %}
+
+    <h1>Please select user to see details.</h1>
+
     {% for user in userlist %}
         <li> <a href="{% url 'otheruser' user.id%}"> {{user}}</a> </li>
         <br>
