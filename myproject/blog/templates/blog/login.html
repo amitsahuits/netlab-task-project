@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+    <h1>Hello & Welcome</h1>
+    <form action="" method="post">
+    {% csrf_token %}
+    {% for fm in form %}
+        {{fm.label_tag}}    {{fm}}    {{fm.errors}} <br><br>
+    {% endfor %} 
+    <input class="btn" style="display:inline;" type="submit">
+    <a class="btn" style="display:inline-block;" href="{%url 'signup'%}">Sign Up</a>
+    </form>
+{% endblock content %}

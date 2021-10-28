@@ -1,0 +1,21 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+{% comment %} if user is admin then only he can see first h1 {% endcomment %}
+    {% if user.is_staff %}
+    <h1>Hello Admin User</h1>
+    {% else %}
+    <h1>User Profile</h1>
+    {% endif %}
+
+    <h2>{{form.username}}</h2>
+    <a class="btn" href="{% url 'userdetail' %}">View personal details</a>
+
+{% comment %} if user is superuser only then he can see other users list {% endcomment %}
+
+    {% if user.is_staff %}
+    <a class="btn" style="display:inline;" href="{% url 'userlist' %}">View users list</a>
+    {% endif %}
+
+    <a class="btn" href="{% url 'logout' %}">Logout</a>
+{% endblock content %}

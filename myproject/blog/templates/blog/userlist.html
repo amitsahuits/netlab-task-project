@@ -1,0 +1,8 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for user in userlist %}
+        <li> <a href="{% url 'otheruser' user.id%}"> {{user}}</a> </li>
+        <br>
+    {% endfor %}
+    <a class="btn" href="{% url 'profile'%}"> Back to profile </a>
+{% endblock content %}

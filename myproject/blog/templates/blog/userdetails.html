@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div style="background-color:green">{{message}}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form action="" method="post" novalidate>
+    {% csrf_token %}
+        {% for fm in form %}
+        <br>  {{fm.label_tag}} <br> {{fm}} {{fm.errors|striptags}} <br>
+        {% endfor %} <br>
+    <input class="btn" type="submit">
+    <a class="btn" href="{% url 'profile' %}">Profile</a>
+    </form>
+{% endblock content %}
